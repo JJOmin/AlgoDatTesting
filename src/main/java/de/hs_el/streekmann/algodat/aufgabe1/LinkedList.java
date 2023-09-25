@@ -9,7 +9,7 @@ public class LinkedList<E> implements List<E> {
 		Node successor;
 		Node(E element) {
 			this.element = element;
-			this.successor = null;
+			this.successor = null; //erstellt nulltes Element (leeres Element)
 		}
 	}
 
@@ -21,55 +21,54 @@ public class LinkedList<E> implements List<E> {
 	public LinkedList() {
 		emptyNode = new Node (null);
 		firstNode = emptyNode;
-		lastNode = emptyNode;
-		numberOfElements = 0; // das sollte eigentlich 0 sein :D
+		lastNode = emptyNode; 
+		numberOfElements = 0; //setzt die Anzahl der Elemente auf 0
 	}
 
+	//Methoden für die LinkedList
 	@Override
 	public boolean add(E element) {
-		Node addedNode = new Node(element);
-		lastNode.successor = addedNode;
-		lastNode = addedNode;
-		numberOfElements++;
+		Node addedNode = new Node(element); //Erstellt neue Node für die Var addedNode
+		lastNode.successor = addedNode; //Setzt die Node an die letzte Stelle
+		lastNode = addedNode; //setzt die Var lastNode auf die neu eingefügte Node
+		numberOfElements++; //erhöht die Anzahl der Elemente um 1
 		return true;
 	}
 
 	@Override
 	public E get(int index) {
 
-		if (index < 0 || index >= numberOfElements) {
+		if (index < 0 || index >= numberOfElements) { //prüft ob der Index im Array liegt
 			throw new IndexOutOfBoundsException();
 		}
-		Node nodeAtCurrentIndex = firstNode.successor;
+		Node nodeAtCurrentIndex = firstNode.successor; //setzt die Var nodeAtCurrentIndex auf das erste Element das nicht das leere Element ist
 
-		for (int currentIndex = 0; currentIndex < index; currentIndex++) {
-			nodeAtCurrentIndex = nodeAtCurrentIndex.successor;
-			currentCount++;
+		for (int currentIndex = 0; currentIndex < index; currentIndex++) { //geht durch die Liste bis zum gewünschten Index
+			nodeAtCurrentIndex = nodeAtCurrentIndex.successor; //setzt die Var nodeAtCurrentIndex auf das nächste Element
+			currentCount++; //zählt die Anzahl der Schleifendurchläufe (Aufgabe 3???)
 		}
-		//System.out.println("\n" + nodeAtCurrentIndex.successor); //test zum verstehen
 		return nodeAtCurrentIndex.element;
-
 	}
 
-	public int currentCount = 0;
+	public int currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
 	@Override
-	public int getCurrentCount(int index){
+	public int getCurrentCount(int index){ //retunt die anzahl der Listenaufrufe
 		return currentCount;
 	}
 
-	public int iteratorCount = 0;
-	public int getIteratorCount(){
+	public int iteratorCount = 0; //Var die die Anzahl der Iterator List aufrufe Zählt
+	public int getIteratorCount(){ //retunt die anzahl der Listenaufrufe im Iterator
 		return iteratorCount;
 	}
 
 	@Override
-	public int size() {
+	public int size() { //gibt die "länge" der Liste (Anzahl der Elemente zurück)
 		return numberOfElements;
 	}
 
 	@Override
-	public E remove(int index) {
-		if (index < 0 || index >= numberOfElements) {
+	public E remove(int index) { //entfernt ein Element an der Stelle index
+		if (index < 0 || index >= numberOfElements) { //prüft ob der Index im Array liegt
 			throw new IndexOutOfBoundsException();
 		}
 		// Allgemeiner Fall: Element in der Mitte oder am Ende entfernen
