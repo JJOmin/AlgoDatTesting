@@ -129,7 +129,7 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return new Iterator<>() {
+		return new Iterator<E>() {
 			Node nextNode = firstNode;
 
 			@Override
