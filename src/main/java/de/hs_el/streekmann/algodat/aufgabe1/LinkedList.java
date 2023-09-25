@@ -72,7 +72,7 @@ public class LinkedList<E> implements List<E> {
 			throw new IndexOutOfBoundsException();
 		}
 		// Allgemeiner Fall: Element in der Mitte oder am Ende entfernen
-		Node previousNode = firstNode;
+		Node previousNode = firstNode; //setzt die Var previousNode auf das erste Element das nicht das leere Element ist
 		Node currentNode = previousNode.successor;
 		for (int currentIndex = 0; currentIndex < index; currentIndex++){
 			previousNode = currentNode;
