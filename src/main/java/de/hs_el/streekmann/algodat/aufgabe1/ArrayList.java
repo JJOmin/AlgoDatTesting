@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayList<E> implements List<E> {
+	public int currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
+	public int iteratorCount = 0;
 
 	static final int MAX_SIZE = 32;
 	int size;
@@ -31,7 +33,6 @@ public class ArrayList<E> implements List<E> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
-		//currentCount = 0;
 		currentCount++;
 
 		return elementArray[index];
@@ -87,13 +88,11 @@ public class ArrayList<E> implements List<E> {
 			}
 		};
 	}
-	public int currentCount = 0;
 	@Override
 	public int getCurrentCount(int index){
 		return currentCount;
 	}
 
-	public int iteratorCount = 0;
 	public int getIteratorCount(){
 		return iteratorCount;
 	}

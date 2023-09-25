@@ -4,9 +4,14 @@ package de.hs_el.streekmann.algodat.aufgabe1;
 import java.util.Iterator;
 
 public class Main {
+	//public Variablen
+	public static int currentCountAll = 0; //Var die die Anzahl der Listenaufrufe zählt
+	public static int iteratorCountAll = 0; //Var die die Anzahl der Listenaufrufe zählt
+	
 	public static void main(String[] args) { //Muss so gemacht werden, ist wie "def main()"
 
 		int numberOfElements = 10; //setzt Var auf 10
+		
 		//System.out.println(args.length);
 		if (args.length > 0) { //Wenn die länge von args größer Null ist
 			numberOfElements = Integer.parseInt(args[0]); //ka was das hier macht, komme ich später drauf zurück
@@ -26,7 +31,7 @@ public class Main {
 		System.out.println("--- LinkedList printed in foreach loop ---");
 		printListInForeachLoop(linkedList); 
 
-		/* 
+		
 		List<Integer> arrayList = new ArrayList<>();
 		fillList(arrayList, numberOfElements);
 		System.out.println("--- ArrayList printed in for loop  ---");
@@ -37,13 +42,15 @@ public class Main {
 
 		System.out.println("--- ArrayList printed in foreach loop ---");
 		printListInForeachLoop(arrayList);
-		*/
+		
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
+		iteratorCountAll = 0;
 		for (Iterator<E> iterator = list.iterator(); iterator.hasNext();) {
 			System.out.print(iterator.next() + "  ");
-			System.out.println(list.getIteratorCount());
+			iteratorCountAll = iteratorCountAll + list.getIteratorCount();
+			System.out.println(" => Sprünge/Aufrufe bis zum Element: "+list.getIteratorCount()+" Insgesamte Aufrufe/Sprünge: "+iteratorCountAll);
 		}
 		System.out.println("\n"); //Absatz
 	}
@@ -56,9 +63,11 @@ public class Main {
 	}
 
 	private static <E> void printListInForLoop(List<E> list) { //Übergabe von linkedList mit Elementen
+		currentCountAll = 0;
 		for (int i = 0; i < list.size(); i++) { //von 0 bis index des letzten Elementes der list
 			System.out.print(list.get(i) + "  "); //printed jedes Element der Liste einzeln
-			System.out.println("Anzahl der Sprünge bis zum gewünsten Element: "+ list.getCurrentCount(i)); //gibt die Anzahl der Sprünge bis zum Zielelement aus
+			currentCountAll = list.getCurrentCount(i) + currentCountAll; //addiert alle aufrufe zusammen
+			System.out.println(" => Sprünge/Aufrufe bis zum Element: "+ list.getCurrentCount(i) +" Insgesamte Aufrufe/Sprünge: "+ currentCountAll); //gibt die Anzahl der Sprünge bis zum Zielelement aus
 		}
 		System.out.println("\n"); //Macht einen Absatz
 	}

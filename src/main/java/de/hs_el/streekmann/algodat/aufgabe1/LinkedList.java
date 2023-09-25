@@ -4,6 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class LinkedList<E> implements List<E> {
+	//Variablen
+	public int currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
+	public int iteratorCount = 0; //Var die die Anzahl der Iterator List aufrufe Zählt
+
 	private class Node {
 		E element;
 		Node successor;
@@ -50,16 +54,17 @@ public class LinkedList<E> implements List<E> {
 		return nodeAtCurrentIndex.element;
 	}
 
-	public int currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
+	//Aufgabe 3
 	@Override
 	public int getCurrentCount(int index){ //retunt die anzahl der Listenaufrufe
 		return currentCount;
 	}
-
-	public int iteratorCount = 0; //Var die die Anzahl der Iterator List aufrufe Zählt
+	@Override
 	public int getIteratorCount(){ //retunt die anzahl der Listenaufrufe im Iterator
 		return iteratorCount;
 	}
+
+
 
 	@Override
 	public int size() { //gibt die "länge" der Liste (Anzahl der Elemente zurück)
@@ -148,7 +153,6 @@ public class LinkedList<E> implements List<E> {
 				if (!hasNext()) {
 					throw new NoSuchElementException();
 				}
-				iteratorCount++;
 				E element = nextNode.successor.element;
 				nextNode = nextNode.successor;
 				iteratorCount++;
