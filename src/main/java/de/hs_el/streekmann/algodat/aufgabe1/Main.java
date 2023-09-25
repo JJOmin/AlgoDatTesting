@@ -42,7 +42,9 @@ public class Main {
 
 		System.out.println("--- ArrayList printed in foreach loop ---");
 		printListInForeachLoop(arrayList);
-		
+
+		System.out.println("Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren? Es scheint so als ob die Iteratoren die Aufrufezahl der Listen erhöht???.");
+
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
