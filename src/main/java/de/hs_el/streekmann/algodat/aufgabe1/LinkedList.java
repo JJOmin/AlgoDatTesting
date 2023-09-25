@@ -31,7 +31,7 @@ public class LinkedList<E> implements List<E> {
 		Node addedNode = new Node(element); //Erstellt neue Node für die Var addedNode
 		lastNode.successor = addedNode; //Setzt die Node an die letzte Stelle
 		lastNode = addedNode; //setzt die Var lastNode auf die neu eingefügte Node
-		numberOfElements++; //erhöht die Anzahl der Elemente um 1
+		numberOfElements++; //addiert die Anzahl der Elemente um 1
 		return true;
 	}
 
@@ -42,10 +42,10 @@ public class LinkedList<E> implements List<E> {
 			throw new IndexOutOfBoundsException();
 		}
 		Node nodeAtCurrentIndex = firstNode.successor; //setzt die Var nodeAtCurrentIndex auf das erste Element das nicht das leere Element ist
-
+		currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
 		for (int currentIndex = 0; currentIndex < index; currentIndex++) { //geht durch die Liste bis zum gewünschten Index
 			nodeAtCurrentIndex = nodeAtCurrentIndex.successor; //setzt die Var nodeAtCurrentIndex auf das nächste Element
-			currentCount++; //zählt die Anzahl der Schleifendurchläufe (Aufgabe 3???)
+			currentCount++; //zählt die Anzahl der Schleifendurchläufe (Aufgabe 3.1)
 		}
 		return nodeAtCurrentIndex.element;
 	}
@@ -73,17 +73,20 @@ public class LinkedList<E> implements List<E> {
 		}
 		// Allgemeiner Fall: Element in der Mitte oder am Ende entfernen
 		Node previousNode = firstNode; //setzt die Var previousNode auf das erste Element das nicht das leere Element ist
-		Node currentNode = previousNode.successor;
-		for (int currentIndex = 0; currentIndex < index; currentIndex++){
-			previousNode = currentNode;
-			currentNode = currentNode.successor;
+		Node currentNode = previousNode.successor; //setzt die Var currentNode auf das zweite Element das nicht das leere Element ist
+		for (int currentIndex = 0; currentIndex < index; currentIndex++){ //geht durch die Liste bis zum gewünschten Index
+			previousNode = currentNode; //setzt die Var previousNode auf das Element das currentNode ist
+			currentNode = currentNode.successor; //setzt die Var currentNode auf den nachfolger der currentNode
 		}
-		E removedElement = currentNode.element;
-		previousNode.successor = currentNode.successor;
-		numberOfElements--;
+		E removedElement = currentNode.element; 
+		previousNode.successor = currentNode.successor; //setzt den nachfolger des vorherigen Elements auf den nachfolger des zu entfernenden Elements
+		numberOfElements--; //subtrahiert die Anzahl der Elemente um 1
 		return removedElement;
 	}
-	private Node getNodeAtIndex(int index) {
+
+	//nötig?
+	/* 
+	private Node getNodeAtIndex(int index) { //gibt das Element an der Stelle index zurück
 		Node nodeAtCurrentIndex = firstNode;
 
 		for (int currentIndex = 0; currentIndex < index; currentIndex++) {
@@ -91,26 +94,29 @@ public class LinkedList<E> implements List<E> {
 		}
 		return nodeAtCurrentIndex;
 	}
+	*/
+
 	@Override
-	public boolean remove(Object o) {
-		Node previousNode = firstNode;
-		Node currentNode = firstNode.successor;
-		while (currentNode != null) {
-			if (o == null ? currentNode.element == null : o.equals(currentNode.element)) {
-				if (previousNode != null) {
-					// Spezialfall: Das erste Element wird entfernt
-					previousNode.successor = currentNode.successor;
+	public boolean remove(Object o) { //entfernt ein Element
+		Node previousNode = firstNode; //setzt die Var previousNode auf das erste Element das nicht das leere Element ist
+		Node currentNode = firstNode.successor; //setzt die Var currentNode auf das zweite Element das nicht das leere Element ist
+		while (currentNode != null) { //solange currentNode nicht null ist...
+			if (o == null ? currentNode.element == null : o.equals(currentNode.element)) { //prüft ob das Element null ist
+
+				// Spezialfall: Das erste Element(das nicht Empty/Null ist :D) der Liste wird entfernt!!!
+				if (previousNode != null) { //wenn previousNode nicht null ist...
+					previousNode.successor = currentNode.successor; //setzt den nachfolger des vorherigen Elements auf den nachfolger des zu entfernenden Elements
 					numberOfElements--;
-					return true;
+					return true; //Element gefunden und entfernt
 				}
 			}
-			previousNode = currentNode;
-			currentNode = currentNode.successor;
+			previousNode = currentNode; //setzt previousNode auf das Element der currentNode
+			currentNode = currentNode.successor; //setzt currentNode auf den nachfolger der currentNode
 		}
-
-		// Das gesuchte Element wurde nicht gefunden
-		return false;
+		return false; //Das gesuchte Element nicht gefunden und nicht entfernt
 	}
+
+
 	@Override
 	public int indexOf(Object o) {
 		int index = 0;

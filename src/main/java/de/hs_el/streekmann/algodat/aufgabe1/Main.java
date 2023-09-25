@@ -21,12 +21,12 @@ public class Main {
 
 
 		System.out.println("--- LinkedList printed in for loop with iterator ---");
-		printListInForLoopWithIterator(linkedList); //ITERATOR???
+		printListInForLoopWithIterator(linkedList); 
 
 		System.out.println("--- LinkedList printed in foreach loop ---");
-		printListInForeachLoop(linkedList);
+		printListInForeachLoop(linkedList); 
 
-
+		/* 
 		List<Integer> arrayList = new ArrayList<>();
 		fillList(arrayList, numberOfElements);
 		System.out.println("--- ArrayList printed in for loop  ---");
@@ -37,6 +37,7 @@ public class Main {
 
 		System.out.println("--- ArrayList printed in foreach loop ---");
 		printListInForeachLoop(arrayList);
+		*/
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
@@ -57,7 +58,7 @@ public class Main {
 	private static <E> void printListInForLoop(List<E> list) { //Übergabe von linkedList mit Elementen
 		for (int i = 0; i < list.size(); i++) { //von 0 bis index des letzten Elementes der list
 			System.out.print(list.get(i) + "  "); //printed jedes Element der Liste einzeln
-			System.out.println(list.getCurrentCount(i));
+			System.out.println("Anzahl der Sprünge bis zum gewünsten Element: "+ list.getCurrentCount(i)); //gibt die Anzahl der Sprünge bis zum Zielelement aus
 		}
 		System.out.println("\n"); //Macht einen Absatz
 	}
