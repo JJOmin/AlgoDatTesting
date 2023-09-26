@@ -43,15 +43,19 @@ public class Main {
 		System.out.println("--- ArrayList printed in foreach loop ---");
 		printListInForeachLoop(arrayList);
 
-		System.out.println("Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren? Es scheint so als ob die Iteratoren die Aufrufezahl der Listen erhöht???.");
-
+		System.out.println(
+				"Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren?"+
+				"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne, aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
+				);
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
 		iteratorCountAll = 0;
 		for (Iterator<E> iterator = list.iterator(); iterator.hasNext();) {
+			//iteratorCountAll = 0;
 			System.out.print(iterator.next() + "  ");
 			iteratorCountAll = iteratorCountAll + list.getIteratorCount();
+			
 			System.out.println(" => Sprünge/Aufrufe bis zum Element: "+list.getIteratorCount()+" Insgesamte Aufrufe/Sprünge: "+iteratorCountAll);
 		}
 		System.out.println("\n"); //Absatz

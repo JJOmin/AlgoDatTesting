@@ -155,6 +155,7 @@ public class LinkedList<E> implements List<E> {
 				}
 				E element = nextNode.successor.element;
 				nextNode = nextNode.successor;
+				iteratorCount = 0;
 				iteratorCount++;
 				return element;
 			}

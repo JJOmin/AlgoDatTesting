@@ -33,6 +33,7 @@ public class ArrayList<E> implements List<E> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
+		currentCount = 0;
 		currentCount++;
 
 		return elementArray[index];
@@ -78,6 +79,7 @@ public class ArrayList<E> implements List<E> {
 				if (nextIndex < size) {
 					nextIndex++;
 				}
+				iteratorCount = 0;
 				iteratorCount++;
 				return elementArray[currentIndex];
 			}
