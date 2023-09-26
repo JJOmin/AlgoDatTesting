@@ -1,5 +1,3 @@
-//Hier ist ja nichts kommentiert. Sorry aber WIR haben das anders gelernt.
-//und das als 1. berührungspunkt mit Java???
 package de.hs_el.streekmann.algodat.aufgabe1;
 import java.util.Iterator;
 
@@ -24,7 +22,6 @@ public class Main {
 		System.out.println("--- LinkedList printed in for loop  ---");
 		printListInForLoop(linkedList); //gibt jedes Element der Liste aus
 
-
 		System.out.println("--- LinkedList printed in for loop with iterator ---");
 		printListInForLoopWithIterator(linkedList); 
 
@@ -44,20 +41,23 @@ public class Main {
 		printListInForeachLoop(arrayList);
 
 		System.out.println(
-				"Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren?"+
+				"Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren?"+"\n"+
 				"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne, aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
 				);
+		System.out.println("\n"); 
+		System.out.println("\n"); 
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
 		iteratorCountAll = 0;
 		for (Iterator<E> iterator = list.iterator(); iterator.hasNext();) {
-			//iteratorCountAll = 0;
 			System.out.print(iterator.next() + "  ");
 			iteratorCountAll = iteratorCountAll + list.getIteratorCount();
 			
-			System.out.println(" => Sprünge/Aufrufe bis zum Element: "+list.getIteratorCount()+" Insgesamte Aufrufe/Sprünge: "+iteratorCountAll);
+			System.out.println(" -> Aufrufe bis zum Element: "+list.getIteratorCount()+
+				", kumulierte Zugriffe: "+ iteratorCountAll);
 		}
+		System.out.println("Insgesamte Aufrufe/Sprünge: "+iteratorCountAll);
 		System.out.println("\n"); //Absatz
 	}
 
@@ -73,8 +73,11 @@ public class Main {
 		for (int i = 0; i < list.size(); i++) { //von 0 bis index des letzten Elementes der list
 			System.out.print(list.get(i) + "  "); //printed jedes Element der Liste einzeln
 			currentCountAll = list.getCurrentCount(i) + currentCountAll; //addiert alle aufrufe zusammen
-			System.out.println(" => Sprünge/Aufrufe bis zum Element: "+ list.getCurrentCount(i) +" Insgesamte Aufrufe/Sprünge: "+ currentCountAll); //gibt die Anzahl der Sprünge bis zum Zielelement aus
+			System.out.println(" -> Aufrufe bis zum Element: "+ list.getCurrentCount(i)+
+				", kumulierte Zugriffe: "+ currentCountAll); //gibt die Anzahl der Sprünge bis zum Zielelement aus
+
 		}
+		System.out.println(" Insgesamte Aufrufe/Sprünge: "+ currentCountAll);
 		System.out.println("\n"); //Macht einen Absatz
 	}
 
