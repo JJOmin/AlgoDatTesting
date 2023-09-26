@@ -42,7 +42,8 @@ public class Main {
 
 		System.out.println(
 				"Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren?"+"\n"+
-				"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne, aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
+				"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne,"+ 
+					"aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
 				);
 		System.out.println("\n"); 
 		System.out.println("\n"); 
