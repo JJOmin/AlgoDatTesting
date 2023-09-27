@@ -59,6 +59,7 @@ public class LinkedList<E> implements List<E> {
 	public int getCurrentCount(int index){ //retunt die anzahl der Listenaufrufe
 		return currentCount;
 	}
+
 	@Override
 	public int getIteratorCount(){ //retunt die anzahl der Listenaufrufe im Iterator
 		return iteratorCount;
@@ -140,7 +141,7 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return new Iterator<>() {
+		return new Iterator<E>() {
 			Node nextNode = firstNode;
 
 			@Override
