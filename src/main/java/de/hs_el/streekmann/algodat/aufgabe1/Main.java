@@ -5,11 +5,11 @@ public class Main {
 	//public Variablen
 	public static int currentCountAll = 0; //Var die die Anzahl der Listenaufrufe zählt
 	public static int iteratorCountAll = 0; //Var die die Anzahl der Listenaufrufe zählt
-	
+
 	public static void main(String[] args) { //Muss so gemacht werden, ist wie "def main()"
 
 		int numberOfElements = 10; //setzt Var auf 10
-		
+
 		//System.out.println(args.length);
 		if (args.length > 0) { //Wenn die länge von args größer Null ist
 			numberOfElements = Integer.parseInt(args[0]); //ka was das hier macht, komme ich später drauf zurück
@@ -23,12 +23,12 @@ public class Main {
 		printListInForLoop(linkedList); //gibt jedes Element der Liste aus
 
 		System.out.println("--- LinkedList printed in for loop with iterator ---");
-		printListInForLoopWithIterator(linkedList); 
+		printListInForLoopWithIterator(linkedList);
 
 		System.out.println("--- LinkedList printed in foreach loop ---");
-		printListInForeachLoop(linkedList); 
+		printListInForeachLoop(linkedList);
 
-		
+
 		List<Integer> arrayList = new ArrayList<>();
 		fillList(arrayList, numberOfElements);
 		System.out.println("--- ArrayList printed in for loop  ---");
@@ -42,11 +42,11 @@ public class Main {
 
 		System.out.println(
 				"Welche Konsequenzen ziehen Sie aus den Messungen für die Verwendung von Iteratoren?"+"\n"+
-				"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne,"+ 
-					"aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
-				);
-		System.out.println("\n"); 
-		System.out.println("\n"); 
+						"Antwort: Der Iterator ist bei einer LinkedList deutlich Effizienter als ohne,"+
+						"aber bei der ArrayList ist es egal ob mit oder ohne Iterator."
+		);
+		System.out.println("\n");
+		System.out.println("\n");
 	}
 
 	private static <E> void printListInForLoopWithIterator(List<E> list) {
@@ -54,9 +54,9 @@ public class Main {
 		for (Iterator<E> iterator = list.iterator(); iterator.hasNext();) {
 			System.out.print(iterator.next() + "  ");
 			iteratorCountAll = iteratorCountAll + list.getIteratorCount();
-			
+
 			System.out.println(" -> Aufrufe bis zum Element: "+list.getIteratorCount()+
-				", kumulierte Zugriffe: "+ iteratorCountAll);
+					", kumulierte Zugriffe: "+ iteratorCountAll);
 		}
 		System.out.println("Insgesamte Aufrufe/Sprünge: "+iteratorCountAll);
 		System.out.println("\n"); //Absatz
@@ -75,7 +75,7 @@ public class Main {
 			System.out.print(list.get(i) + "  "); //printed jedes Element der Liste einzeln
 			currentCountAll = list.getCurrentCount(i) + currentCountAll; //addiert alle aufrufe zusammen
 			System.out.println(" -> Aufrufe bis zum Element: "+ list.getCurrentCount(i)+
-				", kumulierte Zugriffe: "+ currentCountAll); //gibt die Anzahl der Sprünge bis zum Zielelement aus
+					", kumulierte Zugriffe: "+ currentCountAll); //gibt die Anzahl der Sprünge bis zum Zielelement aus
 
 		}
 		System.out.println(" Insgesamte Aufrufe/Sprünge: "+ currentCountAll);

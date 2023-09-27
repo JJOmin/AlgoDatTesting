@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayList<E> implements List<E> {
-	public int currentCount = 0; //Var die die Anzahl der Listenaufrufe zählt
+	public int currentCount = 0;
 	public int iteratorCount = 0;
 
 	static final int MAX_SIZE = 32;
@@ -12,7 +12,7 @@ public class ArrayList<E> implements List<E> {
 	E[] elementArray;
 
 	@SuppressWarnings("unchecked")
-	public ArrayList() {
+	public ArrayList() { //Konstruktor
 		size = 0;
 		elementArray = (E[]) new Object[MAX_SIZE];
 	}

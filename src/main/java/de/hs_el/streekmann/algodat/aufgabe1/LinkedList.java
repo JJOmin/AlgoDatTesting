@@ -25,7 +25,7 @@ public class LinkedList<E> implements List<E> {
 	public LinkedList() {
 		emptyNode = new Node (null);
 		firstNode = emptyNode;
-		lastNode = emptyNode; 
+		lastNode = emptyNode;
 		numberOfElements = 0; //setzt die Anzahl der Elemente auf 0
 	}
 
@@ -83,14 +83,14 @@ public class LinkedList<E> implements List<E> {
 			previousNode = currentNode; //setzt die Var previousNode auf das Element das currentNode ist
 			currentNode = currentNode.successor; //setzt die Var currentNode auf den nachfolger der currentNode
 		}
-		E removedElement = currentNode.element; 
+		E removedElement = currentNode.element;
 		previousNode.successor = currentNode.successor; //setzt den nachfolger des vorherigen Elements auf den nachfolger des zu entfernenden Elements
 		numberOfElements--; //subtrahiert die Anzahl der Elemente um 1
 		return removedElement;
 	}
 
 	//nötig?
-	/* 
+	/*
 	private Node getNodeAtIndex(int index) { //gibt das Element an der Stelle index zurück
 		Node nodeAtCurrentIndex = firstNode;
 
@@ -140,7 +140,7 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return new Iterator<E>() {
+		return new Iterator<>() {
 			Node nextNode = firstNode;
 
 			@Override
