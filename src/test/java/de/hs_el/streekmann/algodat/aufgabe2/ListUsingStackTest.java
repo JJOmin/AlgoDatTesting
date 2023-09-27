@@ -15,39 +15,57 @@ public class ListUsingStackTest {
 	void beforeEach() {
 		stack = new ListUsingStack<>();
 	}
-
+    @Test
+    void testPopEmptyStack() { 
+        //Testet ob bei leerem Stack und pop die Empty Stack Exception geworfen wird
+        assertThrows(EmptyStackException.class, () -> stack.pop());     }
 
 	@Test
-    void testPushPeak() {
+    void testPushPeek() {
+        //Testet ob Push und Peek funktionieren
         stack.push(5);
         stack.push(2);
         assertEquals(2, stack.peek());
     }
 
     @Test
-    void testPop() {
+    void testPopPeek() {
+        //Testet ob Pop und Peek funktionieren
         stack.push(5);
         stack.push(2);
         stack.push(6);
         stack.pop();
         assertEquals(2, stack.pop());
+        stack.pop();
+        stack.push(420);
+        assertEquals(420, stack.peek());
     }
     
     @Test
-    void testPopEmpty() {
-        stack.push(5);
-        stack.pop();
-        assertEquals(null, stack.peek());
+    void testPushPopPeek() {
+        //Testet ob Push, Pop und Peek funktionieren
+        assertEquals(5, stack.push(5));
+        stack.push(589);
+        stack.push(6);
+        assertEquals(6, stack.pop());
+        assertEquals(589, stack.peek());
     }
 
     @Test
-    void testEmptyUsed() {
-        stack.push(5);
-        assertEquals(false, stack.empty());
+    void testPeek() {
+        //Testet ob Peek funktioniert
+        assertNull(stack.peek());
+        stack.push(69);
+        assertEquals(69, stack.peek());
     }
 
     @Test
-    void testEmptyUnused() {
-        assertEquals(true, stack.empty());
+    void testEmpty() {
+        //Testet ob Empty funktioniert
+        assertTrue(stack.empty());
+        stack.push(69);
+        assertFalse(stack.empty());
     }
+
+
 }

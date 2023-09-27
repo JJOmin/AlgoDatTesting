@@ -34,5 +34,4 @@ public class LinkedStack<E> implements Stack<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
