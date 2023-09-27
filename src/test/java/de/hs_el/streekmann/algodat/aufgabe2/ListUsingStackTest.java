@@ -66,6 +66,4 @@ public class ListUsingStackTest {
         stack.push(69);
         assertFalse(stack.empty());
     }
-
-
 }
