@@ -28,8 +28,9 @@ public class ListUsingStackTest {
     void testPop() {
         stack.push(5);
         stack.push(2);
+        stack.push(6);
         stack.pop();
-        assertEquals(5, stack.peek());
+        assertEquals(2, stack.pop());
     }
     
     @Test
@@ -37,5 +38,16 @@ public class ListUsingStackTest {
         stack.push(5);
         stack.pop();
         assertEquals(null, stack.peek());
+    }
+
+    @Test
+    void testEmptyUsed() {
+        stack.push(5);
+        assertEquals(false, stack.empty());
+    }
+
+    @Test
+    void testEmptyUnused() {
+        assertEquals(true, stack.empty());
     }
 }

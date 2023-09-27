@@ -12,8 +12,11 @@ public class ListUsingStack<E> implements Stack<E> {
 
 	@Override
 	public boolean empty() {
-		// TODO Auto-generated method stub
-		return false;
+		if (list.size() == 0 || topItem == null) { //wenn die Liste leer ist
+			return true; //gibt true zurück
+		}else {
+			return false;
+		}
 	}
 
 	@Override
