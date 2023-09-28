@@ -66,5 +66,7 @@ public class ListUsingStackTest {
         assertTrue(stack.empty());
         stack.push(69);
         assertFalse(stack.empty());
+        stack.pop();
+        assertThrows(EmptyStackException.class, () -> stack.pop());     
     }
 }
