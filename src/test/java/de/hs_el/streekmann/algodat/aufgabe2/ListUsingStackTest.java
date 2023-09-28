@@ -18,7 +18,8 @@ public class ListUsingStackTest {
     @Test
     void testPopEmptyStack() { 
         //Testet ob bei leerem Stack und pop die Empty Stack Exception geworfen wird
-        assertThrows(EmptyStackException.class, () -> stack.pop());     }
+        assertThrows(EmptyStackException.class, () -> stack.pop());     
+    }
 
 	@Test
     void testPushPeek() {
