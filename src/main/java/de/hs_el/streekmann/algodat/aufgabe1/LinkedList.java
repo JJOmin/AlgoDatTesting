@@ -90,8 +90,7 @@ public class LinkedList<E> implements List<E> {
 		return removedElement;
 	}
 
-	//nötig?
-	/*
+	//notwendig?
 	private Node getNodeAtIndex(int index) { //gibt das Element an der Stelle index zurück
 		Node nodeAtCurrentIndex = firstNode;
 
@@ -100,7 +99,7 @@ public class LinkedList<E> implements List<E> {
 		}
 		return nodeAtCurrentIndex;
 	}
-	*/
+
 
 	@Override
 	public boolean remove(Object o) { //entfernt ein Element
