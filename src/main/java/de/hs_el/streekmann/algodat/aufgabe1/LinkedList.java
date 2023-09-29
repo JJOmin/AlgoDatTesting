@@ -84,6 +84,10 @@ public class LinkedList<E> implements List<E> {
 			previousNode = currentNode; //setzt die Var previousNode auf das Element das currentNode ist
 			currentNode = currentNode.successor; //setzt die Var currentNode auf den nachfolger der currentNode
 		}
+		if(index == numberOfElements -1) { //wenn der nachfolger des zu entfernenden Elements null ist...
+			lastNode = previousNode; //setzt die Var lastNode auf das vorherige Element
+		}
+		
 		E removedElement = currentNode.element;
 		previousNode.successor = currentNode.successor; //setzt den nachfolger des vorherigen Elements auf den nachfolger des zu entfernenden Elements
 		numberOfElements--; //subtrahiert die Anzahl der Elemente um 1
@@ -110,7 +114,11 @@ public class LinkedList<E> implements List<E> {
 
 				// Spezialfall: Das erste Element(das nicht Empty/Null ist :D) der Liste wird entfernt!!!
 				if (previousNode != null) { //wenn previousNode nicht null ist...
+
 					previousNode.successor = currentNode.successor; //setzt den nachfolger des vorherigen Elements auf den nachfolger des zu entfernenden Elements
+					if(currentNode == lastNode) { //wenn der nachfolger des zu entfernenden Elements null ist...
+						lastNode = previousNode; //setzt die Var lastNode auf das vorherige Element
+					}
 					numberOfElements--;
 					return true; //Element gefunden und entfernt
 				}

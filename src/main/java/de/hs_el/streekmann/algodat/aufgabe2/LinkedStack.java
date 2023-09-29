@@ -38,8 +38,11 @@ public class LinkedStack<E> implements Stack<E> {
 
 	@Override
 	public E push(E item) {
-		// TODO Auto-generated method stub
-		return null;
+		//pusht neues Element in den Stack
+		Node newNode = new Node(item);
+		newNode.successor = topItem;
+		topItem = newNode;
+		return item;
 	}
 
 	@Override

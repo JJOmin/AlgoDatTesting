@@ -52,6 +52,9 @@ class ExtendedFilledListTests {
 		assertEquals(8, removedElement);
 		assertEquals(8, list.size());
 		assertEquals(Integer.valueOf(7), list.get(7));
+		list.add(10);
+		assertEquals(10, list.get(8));
+
 	}
 	
 	@Test
@@ -76,6 +79,9 @@ class ExtendedFilledListTests {
 		assertTrue(removed);
 		assertEquals(8, list.size());
 		assertEquals(Integer.valueOf(7), list.get(7));
+		list.add(10);
+		assertEquals(10, list.get(8));
+
 	}
 	
 	@Test

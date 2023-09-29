@@ -9,25 +9,38 @@ public class ListUsingQueue<E> implements Queue<E> {
 
 	@Override
 	public boolean empty() {
-		// TODO Auto-generated method stub
-		return false;
+		if (list.size() == 0) { //wenn die Liste leer ist
+			return true; //gibt true zurück
+		}else {
+			return false;
+		}
 	}
 
 	@Override
 	public E first() {
-		// TODO Auto-generated method stub
-		return null;
+		if (empty()) { //wenn die Liste leer ist
+			throw new EmptyQueueException();
+		} 
+		return list.get(0); //gibt das erste Element der Liste zurück
 	}
 
 	@Override
 	public E enqueue(E element) {
-		// TODO Auto-generated method stub
-		return null;
+		list.add(element); //fügt das Element am Ende der Liste hinzu
+		return element;
 	}
 
 	@Override
 	public E dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		if (empty()){
+			throw new EmptyQueueException();
+		}
+
+		if (list.size() > 0){
+			return list.remove(0);
+		} else {
+			return null;
+		}
+		
 	}
 }
