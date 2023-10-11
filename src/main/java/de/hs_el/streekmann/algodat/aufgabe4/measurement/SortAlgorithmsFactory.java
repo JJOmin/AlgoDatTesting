@@ -20,7 +20,7 @@ public class SortAlgorithmsFactory<E extends Comparable<E>> {
 	private final Map<SortAlgorithm, Sort<E>> knownSortAlgorithms = Map.ofEntries(
 			Map.entry(SortAlgorithm.BUBBLE_SORT, new BubbleSort<>()),
 			Map.entry(SortAlgorithm.INSERTION_SORT, new InsertionSort<>()),
-			Map.entry(SortAlgorithm.SELECTION_SORT, new SelectionSort<>()),
+			//Map.entry(SortAlgorithm.SELECTION_SORT, new SelectionSort<>()),
 			Map.entry(SortAlgorithm.SHELL_SORT, new ShellSort<>())
 	);
 
