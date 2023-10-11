@@ -55,7 +55,7 @@ public class ListUsingStackTest {
     @Test
     void testPeek() {
         //Testet ob Peek funktioniert
-        assertNull(stack.peek());
+        assertThrows(EmptyStackException.class, () -> stack.peek());
         stack.push(69);
         assertEquals(69, stack.peek());
     }
@@ -68,5 +68,12 @@ public class ListUsingStackTest {
         assertFalse(stack.empty());
         stack.pop();
         assertThrows(EmptyStackException.class, () -> stack.pop());     
+    }
+
+    @Test
+    void testPop() {
+        stack.push(3);
+        stack.push(1);
+        assertEquals(1, stack.pop());
     }
 }

@@ -19,11 +19,7 @@ public class LinkedStack<E> implements Stack<E> {
 	@Override
 	public boolean empty() {
 		//return wenn stack empty ist
-		if (topItem == null) {
-			return true;
-		} else {
-			return false;
-		}
+		return topItem == null;
 	}
 
 	@Override

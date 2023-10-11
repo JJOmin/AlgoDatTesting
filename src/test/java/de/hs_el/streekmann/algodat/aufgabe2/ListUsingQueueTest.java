@@ -49,7 +49,22 @@ public class ListUsingQueueTest {
 		assertTrue(queue.empty());
     }
 
-
+	@Test
+	void emptyNot() {
+		queue.enqueue(3);
+		queue.enqueue(1);
+		assertFalse(queue.empty());
+	}
+	@Test
+	void testEnqueueDequeue() {
+		queue.enqueue(3);
+		queue.enqueue(1);
+		assertEquals(3, queue.dequeue());
+		queue.enqueue(2);
+		assertEquals(1, queue.dequeue());
+		assertEquals(2, queue.dequeue());
+		assertTrue(queue.empty());
+	}
 	
 
 

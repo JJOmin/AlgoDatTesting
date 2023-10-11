@@ -9,11 +9,9 @@ public class ListUsingQueue<E> implements Queue<E> {
 
 	@Override
 	public boolean empty() {
-		if (list.size() == 0) { //wenn die Liste leer ist
-			return true; //gibt true zurück
-		}else {
-			return false;
-		}
+		return list.size() == 0; //wenn die Liste leer ist gibt true zurück
+		
+		
 	}
 
 	@Override

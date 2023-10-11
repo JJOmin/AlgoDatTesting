@@ -83,6 +83,7 @@ public class LinkedList<E> implements List<E> {
 		for (int currentIndex = 0; currentIndex < index; currentIndex++){ //geht durch die Liste bis zum gewünschten Index
 			previousNode = currentNode; //setzt die Var previousNode auf das Element das currentNode ist
 			currentNode = currentNode.successor; //setzt die Var currentNode auf den nachfolger der currentNode
+		
 		}
 		if(index == numberOfElements -1) { //wenn der nachfolger des zu entfernenden Elements null ist...
 			lastNode = previousNode; //setzt die Var lastNode auf das vorherige Element

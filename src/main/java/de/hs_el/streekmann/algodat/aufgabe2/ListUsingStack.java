@@ -21,7 +21,9 @@ public class ListUsingStack<E> implements Stack<E> {
 
 	@Override
 	public E peek() {
-		// TODO Auto-generated method stub
+		if (list.size() == 0) {
+			throw new EmptyStackException();
+		}
 		return topItem;
 	}
 
