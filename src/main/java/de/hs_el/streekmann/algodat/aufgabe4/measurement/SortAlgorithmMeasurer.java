@@ -98,16 +98,17 @@ public class SortAlgorithmMeasurer {
 	}
 
 	private static Integer[] createRandomIntegerArray(int numberOfElements) {
-		return RANDOM.ints(numberOfElements, Integer.MIN_VALUE, Integer.MAX_VALUE).boxed().toArray( Integer[]::new );
+		return RANDOM.ints(numberOfElements, 1, numberOfElements).boxed().toArray( Integer[]::new );
 	}
 
 	private static Integer[] createSortedIntegerArray(int numberOfElements) {
-		return IntStream.range(0, numberOfElements).boxed().toArray( Integer[]::new );
+		return IntStream.range(1, numberOfElements).boxed().toArray( Integer[]::new );
 	}
 
 	private static Integer[] createReverseIntegerArray(int numberOfElements) {
-		int from = 0;
-		int to = numberOfElements;
+		int from = 1;
+		int to = numberOfElements+1;
 		return IntStream.range(from, to).map(i -> to - i + from - 1).boxed().toArray( Integer[]::new );
 	}
 }
+

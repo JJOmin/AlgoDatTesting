@@ -5,11 +5,14 @@ public class BubbleSort<E extends Comparable<E>> implements Sort<E> {
 	@Override
 	public void sort(DataStructureOperator<E> dataStructureOperator) {
 		for (int i = 0; i < dataStructureOperator.numberOfElements(); i++) {
+			int exchanges = 0;
 			for (int j = dataStructureOperator.numberOfElements()-1; j > i; j--) {
 				if (dataStructureOperator.greaterThan(j-1, j)) {
 					dataStructureOperator.exchange(j-1, j);
+					exchanges++;
 				}
 			}
+			if (exchanges == 0) break;
 		}
 	}
 

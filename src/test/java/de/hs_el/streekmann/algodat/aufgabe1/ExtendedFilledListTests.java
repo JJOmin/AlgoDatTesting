@@ -108,4 +108,25 @@ class ExtendedFilledListTests {
 		assertFalse(removed);
 		assertEquals(9, list.size());
 	}
+
+	@Test
+	void testRemoveAFewElementsAndAddSome() {
+		int[] expectedArray = { 1,2,3,5,6,7,9,10 };
+		int[] actualArray = new int[8];
+
+		list.remove(Integer.valueOf(8));
+		list.remove(0);
+		list.remove(3);
+		list.add(9);
+		list.add(10);
+
+		// Liste auslesen und in actualArray schreiben
+		int j = 0;
+		for (int i : list) {
+			actualArray[j++]=i;
+		}
+		assertArrayEquals(expectedArray, actualArray);
+
+	}
+
 }

@@ -32,10 +32,12 @@ public class LinkedList<E> implements List<E> {
 	//Methoden für die LinkedList
 	@Override
 	public boolean add(E element) {
-		Node addedNode = new Node(element); //Erstellt neue Node für die Var addedNode
-		lastNode.successor = addedNode; //Setzt die Node an die letzte Stelle
-		lastNode = addedNode; //setzt die Var lastNode auf die neu eingefügte Node
-		numberOfElements++; //addiert die Anzahl der Elemente um 1
+		Node addedNode = new Node(element);
+		
+			lastNode.successor = addedNode;
+		
+		lastNode = addedNode;
+		numberOfElements++;
 		return true;
 	}
 

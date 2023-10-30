@@ -28,3 +28,4 @@ public class SortAlgorithmsFactory<E extends Comparable<E>> {
 		return knownSortAlgorithms.get(algorithm);
 	}
 }
+
